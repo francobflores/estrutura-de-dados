@@ -50,14 +50,28 @@ void imprime(struct no* L){
     }
     printf("\n");
 }
+
+
 int main(){
     printf("Testando a Função insereInicio():\n\n");
     
     struct no *L = NULL;
 
     L = insereInicio(L, 20);
+    L = insereInicio(L, 70);
+    L = insereInicio(L, 90);
 
     imprime(L);
+
+    printf("Testando a Função insereFinal():\n\n");
+
+    struct no *K = NULL;
+
+    K = insereFinal(K, 30);
+    K = insereFinal(K, 50);
+    K = insereFinal(K, 90);
+
+    imprime(K);
 
     return 0;
 }
