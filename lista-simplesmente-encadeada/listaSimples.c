@@ -40,7 +40,17 @@ struct no* insereFinal(struct no*L, int valor){
     }
     return L;
 }
-
+//Função que BUSCA uma chave na lista
+struct no* buscaChave(struct no* L, int chave){
+    struct no* aux = L;
+    if(L == NULL)return NULL;
+    while(aux != NULL){
+        if(aux->chave == chave)break;
+        aux = aux->prox;
+    }
+    return aux;
+}
+//Função que IMPRIME uma lista
 void imprime(struct no* L){
     struct no* aux = L;
     printf("Imprimindo Lista:\n");
