@@ -5,7 +5,7 @@
 struct no{
     int chave;
     struct no* prox;
-}
+};
 
 //Função que CRIA um nó
 struct no* criaNo(int valor){
@@ -43,11 +43,21 @@ struct no* insereFinal(struct no*L, int valor){
 
 void imprime(struct no* L){
     struct no* aux = L;
+    printf("Imprimindo Lista:\n");
     while(aux != NULL){
         printf("%d ", aux->chave);
+        aux = aux->prox;
     }
-    printf("\n")
+    printf("\n");
 }
 int main(){
+    printf("Testando a Função insereInicio():\n\n");
+    
+    struct no *L = NULL;
+
+    L = insereInicio(L, 20);
+
+    imprime(L);
+
     return 0;
 }
