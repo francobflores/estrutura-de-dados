@@ -26,6 +26,20 @@ struct no* insereInicio(struct no* L, int valor ){
     L = novo;
     return L;
 }
+//Função que insere um nó no FINAL da lista
+struct no* insereFinal(struct no*L, int valor){
+    struct no* novo = criaNo(valor);
+    struct no* aux = L;
+    if(L == NULL)
+        L = novo;
+    else{
+        while(aux->prox != NULL){
+            aux = aux->prox;
+        }
+        aux->prox = novo;
+    }
+    return L;
+}
 int main(){
     return 0;
 }
