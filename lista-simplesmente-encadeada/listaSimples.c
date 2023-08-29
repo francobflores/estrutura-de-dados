@@ -77,11 +77,20 @@ int main(){
 
     struct no *K = NULL;
 
-    K = insereFinal(K, 30);
-    K = insereFinal(K, 50);
+    K = insereFinal(K, 20);
+    K = insereFinal(K, 70);
     K = insereFinal(K, 90);
 
     imprime(K);
 
+    printf("Buscando uma chave na Lista:\n");
+    struct no *valorBuscado = buscaChave(L,0);
+    if(valorBuscado == NULL){
+        printf("Chave não encontrada!\n");    
+    }
+    else{
+        printf("Chave %d encotrada!\n",valorBuscado->chave);
+    }
+    
     return 0;
 }
