@@ -71,6 +71,23 @@ struct no* excluiIncio(struct no* L){
     return L;
 }
 
+//Função que exclui o último nó da Lista
+ 
+struct no* excluiFinal(struct no* L){
+    struct no* aux = L;
+    struct no* pred = NULL;
+    if(L == NULL)return NULL;
+    else{
+        while(aux->prox != NULL){
+            pred = aux;
+            aux = aux->prox;
+        }
+        if(pred == NULL) L=NULL;
+        else pred->prox = NULL;
+        free(aux);
+        return L;
+    }
+}
 
 int main(){
     printf("Testando a Função insereInicio():\n\n");
@@ -105,7 +122,10 @@ int main(){
     printf("Testando a função que exclui o primeiro nó da Lista:\n");
     L = excluiIncio(L);
     imprime(L);
-    
+
+    printf("Testando a função que exclui o último nó da Lista:\n");
+    L = excluiFinal(K);
+    imprime(K);
     
     return 0;
 }
