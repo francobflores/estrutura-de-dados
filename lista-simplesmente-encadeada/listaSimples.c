@@ -121,6 +121,30 @@ struct no* buscaChaveOrdenado(struct no* L,int valor){
     }
 }
 
+//Função que insereOrdenado na Lista
+
+struct no* insereOrdenado(struct no* L, int valor){
+    struct no* novo =criaNo(valor);
+    struct no* aux = L;
+    struct no* pred =NULL;
+    if(L == NULL)L = novo;
+    else{
+        while(aux != NULL && valor < aux->chave){
+            pred = aux;
+            aux = aux->prox;
+        }
+        if(pred == NULL){
+            novo->prox = aux;
+            L = novo;
+        }
+        else{
+            novo->prox = aux;
+            pred->prox = novo;
+        }
+    }
+    return L;
+}
+
 int main(){
     printf("Testando a Função insereInicio():\n\n");
     
