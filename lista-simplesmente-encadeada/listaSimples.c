@@ -107,6 +107,20 @@ struct no* excluiChave(struct no *L, int valor){
     }
 }
 
+//Função de busca em uma lista ordenada
+
+struct no* buscaChaveOrdenado(struct no* L,int valor){
+    struct no* aux = L;
+    if(L == NULL)return NULL;
+    else{
+        while(aux != NULL){
+            if(valor <= aux->chave) break;
+            aux = aux->prox;
+        }
+        return aux; // ou vai retornar o valor ou retornar o primeiro valor maior que o buscado.
+    }
+}
+
 int main(){
     printf("Testando a Função insereInicio():\n\n");
     
