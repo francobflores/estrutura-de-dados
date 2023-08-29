@@ -89,6 +89,24 @@ struct no* excluiFinal(struct no* L){
     }
 }
 
+//Função que exclui uma chave na Lista
+
+struct no* excluiChave(struct no *L, int valor){
+    struct no* aux = L;
+    struct no* pred = NULL;
+    if( L == NULL)return NULL;
+    else{
+        while(aux != NULL && valor != aux->chave){
+            pred = aux;
+            aux = aux->prox;
+        }
+        if(pred == NULL)L = aux->prox; // o valor a ser excluido é o primeiro na lista
+        else pred->prox = aux->prox;
+        free(aux);
+        return L;
+    }
+}
+
 int main(){
     printf("Testando a Função insereInicio():\n\n");
     
