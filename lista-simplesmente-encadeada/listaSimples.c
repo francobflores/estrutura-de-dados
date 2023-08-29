@@ -61,6 +61,16 @@ void imprime(struct no* L){
     printf("\n");
 }
 
+//Função que exclui o primeiro nó da Lista
+
+struct no* excluiIncio(struct no* L){
+    struct no* aux = L;
+    if(L == NULL)return NULL;
+    L = L->prox;
+    free(aux);
+    return L;
+}
+
 
 int main(){
     printf("Testando a Função insereInicio():\n\n");
@@ -91,6 +101,11 @@ int main(){
     else{
         printf("Chave %d encotrada!\n",valorBuscado->chave);
     }
+
+    printf("Testando a função que exclui o primeiro nó da Lista:\n");
+    L = excluiIncio(L);
+    imprime(L);
+    
     
     return 0;
 }
