@@ -129,7 +129,7 @@ struct no* insereOrdenado(struct no* L, int valor){
     struct no* pred =NULL;
     if(L == NULL)L = novo;
     else{
-        while(aux != NULL && valor < aux->chave){
+        while(aux != NULL && valor > aux->chave){
             pred = aux;
             aux = aux->prox;
         }
@@ -152,7 +152,7 @@ struct no* excluiChaveOrd(struct no* L, int valor){
     struct no* pred = NULL;
     if(L == NULL)return NULL;
     else{
-        while(aux != NULL && valor > aux->chave){
+        while(aux != NULL && valor < aux->chave){
             pred = aux;
             aux = aux->prox;
         }
@@ -166,10 +166,10 @@ struct no* excluiChaveOrd(struct no* L, int valor){
 }
 
 int main(){
-    printf("Testando a Função insereInicio():\n\n");
+   // printf("Testando a Função insereInicio():\n\n");
     
     struct no *L = NULL;
-
+/*
     L = insereInicio(L, 20);
     L = insereInicio(L, 70);
     L = insereInicio(L, 90);
@@ -202,6 +202,16 @@ int main(){
     printf("Testando a função que exclui o último nó da Lista:\n");
     L = excluiFinal(K);
     imprime(K);
+ */
+
+printf("TESTE DAS FUNÇÕES ORDENADAS\n\n");
+
+    L = insereOrdenado(L,20);
+    L = insereOrdenado(L,80);
+    L = insereOrdenado(L,70);
+    L = insereOrdenado(L,30);
+    L = insereOrdenado(L,90);
     
+    imprime(L);
     return 0;
 }
