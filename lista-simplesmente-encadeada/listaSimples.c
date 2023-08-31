@@ -145,6 +145,26 @@ struct no* insereOrdenado(struct no* L, int valor){
     return L;
 }
 
+//função que exclui uma chave em uma lista ordenada
+
+struct no* excluiChaveOrd(struct no* L, int valor){
+    struct no* aux = L;
+    struct no* pred = NULL;
+    if(L == NULL)return NULL;
+    else{
+        while(aux != NULL && valor > aux->chave){
+            pred = aux;
+            aux = aux->prox;
+        }
+        if(aux != NULL && aux->chave == valor){
+            if(pred == NULL)L = aux->prox;
+            else pred->prox = aux->prox;
+            free(aux);
+        }
+        return L;
+    }
+}
+
 int main(){
     printf("Testando a Função insereInicio():\n\n");
     
