@@ -152,7 +152,7 @@ struct no* excluiChaveOrd(struct no* L, int valor){
     struct no* pred = NULL;
     if(L == NULL)return NULL;
     else{
-        while(aux != NULL && valor < aux->chave){
+        while(aux != NULL && valor > aux->chave){
             pred = aux;
             aux = aux->prox;
         }
@@ -211,6 +211,9 @@ printf("TESTE DAS FUNÇÕES ORDENADAS\n\n");
     L = insereOrdenado(L,70);
     L = insereOrdenado(L,30);
     L = insereOrdenado(L,90);
+     imprime(L);
+    
+    L = excluiChaveOrd(L, 70);
     
     imprime(L);
     return 0;
