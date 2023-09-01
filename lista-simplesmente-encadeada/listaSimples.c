@@ -198,6 +198,28 @@ struct no *insereListaOrd(struct no *L, int valor) {
     return L; // Retorna o ponteiro para o início da lista atualizada.
 }
 
+struct no *excluiListaOrd(struct no *L, int valor) {
+    struct no *pred = NULL; // Inicializa o ponteiro para o nó predecessor como NULL.
+    struct no *aux = buscaListaOrd(L, valor, &pred); // Chama a função buscaListaOrd para encontrar o nó com o valor especificado.
+
+    if (aux != NULL && aux->chave == valor) {
+        // Se o nó auxiliar não for NULL e seu valor for igual ao valor especificado, ele deve ser removido.
+
+        if (pred == NULL) {
+            // Se o nó predecessor for NULL, isso significa que o nó a ser removido é o primeiro da lista.
+            L = aux->prox; // Atualiza o início da lista para apontar para o próximo nó.
+        } else {
+            // Caso contrário, o nó a ser removido está no meio ou no final da lista.
+            pred->prox = aux->prox; // O próximo nó do nó predecessor aponta para o próximo nó do nó a ser removido.
+        }
+
+        free(aux); // Libera a memória alocada para o nó a ser removido.
+    }
+
+    return L; // Retorna o ponteiro para o início da lista atualizada.
+}
+
+
 
 
 int main(){
