@@ -219,13 +219,48 @@ struct no *excluiListaOrd(struct no *L, int valor) {
     return L; // Retorna o ponteiro para o início da lista atualizada.
 }
 
+//Função que concatena 2 Listas Simples
+struct no* concatena(struct no* L1, struct no* L2){
+    struct no* aux = L1;
+    if(L1 == NULL)return L2;
+    while(aux->prox != NULL) aux = aux->prox;
 
+    aux->prox = L2;
+    return L1;
+}
+
+//Função que exclui os elemento repetidos
+struct no* excluiRepetidos(struct no* L){
+    struct no* aux = L;
+    
+    if(L == NULL || L->prox == NULL)return L;
+    while(aux != NULL){
+        struct no* aux1 = aux->prox;
+        
+        while(aux1 != NULL){
+            if(aux1->chave == aux->chave){
+                aux->prox = aux1->prox;
+                free(aux1);
+                   aux1 = aux->prox; // Atualiza aux1 após a remoção.
+            } else {
+                aux1 = aux1->prox; // Move aux1 normalmente se não houver remoção.
+            }
+                
+            }
+            
+           
+           aux = aux->prox;  
+        }
+       
+      return L;   
+}
 
 
 int main(){
    // printf("Testando a Função insereInicio():\n\n");
     
-    struct no *L = NULL;
+    struct no *L1 = NULL;
+    struct no *L2 = NULL;
 /*
     L = insereInicio(L, 20);
     L = insereInicio(L, 70);
@@ -259,7 +294,7 @@ int main(){
     printf("Testando a função que exclui o último nó da Lista:\n");
     L = excluiFinal(K);
     imprime(K);
- */
+ 
 
 printf("TESTE DAS FUNÇÕES ORDENADAS\n\n");
 
@@ -267,7 +302,30 @@ printf("TESTE DAS FUNÇÕES ORDENADAS\n\n");
     L = insereListaOrd(L,80);
     L = insereListaOrd(L,10);
     L = insereListaOrd(L,90);
+*/
+    printf("TESTANDO A FUNÇÃO PARA CONCATENAR LISTAS SIMPLES\n\n");
 
-    imprime(L);
+    L1 = insereInicio(L1,3);
+    L1 = insereInicio(L1,5);
+    L1 = insereInicio(L1,8);
+    L1 = insereInicio(L1,8);
+    L1 = insereInicio(L1,8);
+    L1 = insereInicio(L1,7);
+    L1 = insereInicio(L1,9);
+
+    L2 = insereInicio(L2,7);
+    L2 = insereInicio(L2,9);
+    L2 = insereInicio(L2,4);
+    L2 = insereInicio(L2,2);
+    L2 = insereInicio(L2,6);
+
+    imprime(L1);
+
+    imprime(L2);
+
+    //L1 = concatena(L1, L2);
+    //imprime(L1);
+    L1 = excluiRepetidos(L1);
+    imprime(L1);
     return 0;
 }
