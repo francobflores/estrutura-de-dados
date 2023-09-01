@@ -181,6 +181,23 @@ struct no *buscaListaOrd(struct no *L, int valor, struct no **pred) {
         return aux;
     }
 }
+struct no *insereListaOrd(struct no *L, int valor) {
+    struct no *novo = criaNo(valor); // Cria um novo nó com o valor especificado.
+    struct no *pred = NULL; // Inicializa o ponteiro para o nó predecessor como NULL.
+    struct no *aux = buscaListaOrd(L, valor, &pred); // Chama a função buscaListaOrd para encontrar a posição de inserção.
+
+    if (pred == NULL) {
+        // Se o nó predecessor for NULL, isso significa que o novo nó deve ser inserido no início da lista.
+        novo->prox = aux; // O próximo nó do novo nó aponta para o nó atual (anteriormente no início da lista).
+        L = novo; // O novo nó se torna o novo início da lista.
+    } else {
+        // Caso contrário, o novo nó deve ser inserido entre o nó predecessor e o nó atual.
+        novo->prox = aux; // O próximo nó do novo nó aponta para o nó atual.
+        pred->prox = novo; // O próximo nó do nó predecessor aponta para o novo nó.
+    }
+    return L; // Retorna o ponteiro para o início da lista atualizada.
+}
+
 
 
 int main(){
@@ -224,15 +241,11 @@ int main(){
 
 printf("TESTE DAS FUNÇÕES ORDENADAS\n\n");
 
-    L = insereOrdenado(L,20);
-    L = insereOrdenado(L,80);
-    L = insereOrdenado(L,70);
-    L = insereOrdenado(L,30);
-    L = insereOrdenado(L,90);
-     imprime(L);
-    
-    L = excluiChaveOrd(L, 70);
-    
+    L = insereListaOrd(L,20);
+    L = insereListaOrd(L,80);
+    L = insereListaOrd(L,10);
+    L = insereListaOrd(L,90);
+
     imprime(L);
     return 0;
 }
