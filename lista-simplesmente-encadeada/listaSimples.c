@@ -165,6 +165,24 @@ struct no* excluiChaveOrd(struct no* L, int valor){
     }
 }
 
+//Função de buscar ordenado auxiliar 
+
+struct no *buscaListaOrd(struct no *L, int valor, struct no **pred) {
+    struct no *aux = L;
+    (*pred) = NULL;
+
+    if (L == NULL) return NULL;
+    else {
+        while (aux != NULL) {
+            if (valor <= aux->chave) break;
+            (*pred) = aux;
+            aux = aux->prox;
+        }
+        return aux;
+    }
+}
+
+
 int main(){
    // printf("Testando a Função insereInicio():\n\n");
     
