@@ -28,3 +28,13 @@ No *insereInicio(No *L, int valor){
     }
     return L;
 }
+
+void imprime(No *L){
+    if(L != NULL){
+        No *aux = L;
+        while(aux != NULL){
+            printf("%d ", aux->chave);
+            aux = aux->chave;
+        }
+    }
+}
