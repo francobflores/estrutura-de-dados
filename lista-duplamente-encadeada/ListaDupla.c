@@ -17,3 +17,14 @@ novo->prox = NULL;
 novo->ant = NULL;
 return novo;
 }
+
+No *insereInicio(No *L, int valor){
+    No *novo = criaNo(valor);
+    if(L == NULL) L = novo;
+    else{
+        novo->prox = L;
+        L->ant = novo;
+        L = novo;
+    }
+    return L;
+}
