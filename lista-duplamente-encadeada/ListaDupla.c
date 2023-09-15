@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 
 typedef struct no {
     int chave;
@@ -34,7 +35,12 @@ void imprime(No *L){
         No *aux = L;
         while(aux != NULL){
             printf("%d ", aux->chave);
-            aux = aux->chave;
+            aux = aux->prox;
         }
     }
+}
+
+int main(){
+    
+    return 0;
 }
