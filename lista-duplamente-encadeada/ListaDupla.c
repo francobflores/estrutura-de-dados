@@ -31,6 +31,7 @@ No *insereInicio(No *L, int valor){
 }
 
 void imprime(No *L){
+    printf("Imprimindo a Lista:");
     if(L != NULL){
         No *aux = L;
         while(aux != NULL){
@@ -43,17 +44,38 @@ void imprime(No *L){
 
 int main(){
     No *L = NULL;
+    int valor, escolha;
+    while(escolha != 3){
+    printf("\nMenu:\n");
+    printf("1. Inserir elemento no início\n");
+    printf("2. Imprimir Lista\n");
+    printf("3. Sair do programa ");
+    scanf("%d", &escolha);
+    switch (escolha)
+    {
+    case 1:/* constant-expression */
+        /* code */
+         printf("Digite o valor a ser inserido: ");
+                scanf("%d", &valor);
+                L = insereInicio(L, valor);
+        break;
+    case 2:
+            imprime(L);
+            break;
+    case 3: 
+        printf("Fechando o Programa! By!");
+        printf("\n");
+        exit(0);
+        break;
+    default:
+    printf("Opção inválida!\n");
+        break;
+    }
+    }
 
-    L = insereInicio(L , 9);
-    L = insereInicio(L , 9);
-    L = insereInicio(L , 9);
-    L = insereInicio(L , 9);
-    L = insereInicio(L , 9);
-    L = insereInicio(L , 9);
-    L = insereInicio(L , 9);
-    L = insereInicio(L , 9);
+    
 
-    imprime(L);
+    
     
     return 0;
 }
