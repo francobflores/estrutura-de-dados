@@ -38,9 +38,22 @@ void imprime(No *L){
             aux = aux->prox;
         }
     }
+    printf("\n");
 }
 
 int main(){
+    No *L = NULL;
+
+    L = insereInicio(L , 9);
+    L = insereInicio(L , 9);
+    L = insereInicio(L , 9);
+    L = insereInicio(L , 9);
+    L = insereInicio(L , 9);
+    L = insereInicio(L , 9);
+    L = insereInicio(L , 9);
+    L = insereInicio(L , 9);
+
+    imprime(L);
     
     return 0;
 }
