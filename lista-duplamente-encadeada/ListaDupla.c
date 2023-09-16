@@ -49,7 +49,8 @@ No *excluiInicio(No *L){
     No *aux = L;
     if(L == NULL)return L;
     L = L->prox;
-    L->ant = NULL;
+    if(aux->ant != NULL) //verifica se a lista só tem um elemento
+    L->ant = NULL;// este campo nao pode ser acessado caso seja elemento unico
     free(aux);
     return L;
 }
@@ -73,8 +74,9 @@ int main(){
     printf("\nMenu:\n");
     printf("1. Inserir elemento no início\n");
     printf("2. Inserir elemento no final\n");
-    printf("3. Imprimir Lista\n");
-    printf("4. Sair do programa ");
+    printf("3  Excluir primeiro elemento\n");
+    printf("7. Imprimir Lista\n");
+    printf("8. Sair do programa ");
     
     scanf("%d", &escolha);
     switch (escolha)
@@ -91,10 +93,14 @@ int main(){
                 L = insereFinal(L, valor);
         break;
     case 3:
+        L = excluiInicio(L);
+        
+        break;
+    case 7:
             imprime(L);
             break;
     
-    case 4: 
+    case 8: 
         printf("Fechando o Programa! By!");
         printf("\n");
         exit(0);
