@@ -32,10 +32,13 @@ No *insereInicio(No *L, int valor){
 
 No *insereFinal(No *L, int valor){
     No *novo = criaNo(valor);
-    if(L == NULL) L=L->prox;
+    if(L == NULL) L= novo;
     else{
         No *aux = L;
-        while(aux->prox != NULL)aux = aux->prox;
+        while(aux->prox != NULL){
+            aux = aux->prox;
+        }
+        
         aux->prox = novo;
         novo->ant = aux;
     }
@@ -57,11 +60,13 @@ void imprime(No *L){
 int main(){
     No *L = NULL;
     int valor, escolha;
-    while(escolha != 3){
+    while(1){
     printf("\nMenu:\n");
     printf("1. Inserir elemento no início\n");
-    printf("2. Imprimir Lista\n");
-    printf("3. Sair do programa ");
+    printf("2. Inserir elemento no final\n");
+    printf("3. Imprimir Lista\n");
+    printf("4. Sair do programa ");
+    
     scanf("%d", &escolha);
     switch (escolha)
     {
@@ -72,9 +77,15 @@ int main(){
                 L = insereInicio(L, valor);
         break;
     case 2:
+        printf("Digite o valor a ser inserido: ");
+            scanf("%d", &valor);
+                L = insereFinal(L, valor);
+        break;
+    case 3:
             imprime(L);
             break;
-    case 3: 
+    
+    case 4: 
         printf("Fechando o Programa! By!");
         printf("\n");
         exit(0);
