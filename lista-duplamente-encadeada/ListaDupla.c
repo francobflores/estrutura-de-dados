@@ -55,6 +55,20 @@ No *excluiInicio(No *L){
     return L;
 }
 
+No *excluiFinal(No *L){
+    No *aux = L;
+    if(L == NULL)return L;
+    while(aux->prox != NULL)
+        aux = aux->prox;
+    if(aux->ant == NULL){
+    L = L->prox;
+    }
+    else{
+        aux->ant->prox = aux->prox;
+    }
+    free(aux);
+}
+
 void imprime(No *L){
     printf("Imprimindo a Lista:");
     if(L != NULL){
