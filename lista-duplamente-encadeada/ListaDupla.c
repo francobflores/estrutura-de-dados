@@ -45,6 +45,15 @@ No *insereFinal(No *L, int valor){
     return L;
 }
 
+No *excluiInicio(No *L){
+    No *aux = L;
+    if(L == NULL)return L;
+    L = L->prox;
+    L->ant = NULL;
+    free(aux);
+    return L;
+}
+
 void imprime(No *L){
     printf("Imprimindo a Lista:");
     if(L != NULL){
