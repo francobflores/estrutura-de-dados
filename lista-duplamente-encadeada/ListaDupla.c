@@ -30,6 +30,18 @@ No *insereInicio(No *L, int valor){
     return L;
 }
 
+No *insereFinal(No *L, int valor){
+    No *novo = criaNo(valor);
+    if(L == NULL) L=L->prox;
+    else{
+        No *aux = L;
+        while(aux->prox != NULL)aux = aux->prox;
+        aux->prox = novo;
+        novo->ant = aux;
+    }
+    return L;
+}
+
 void imprime(No *L){
     printf("Imprimindo a Lista:");
     if(L != NULL){
