@@ -67,6 +67,7 @@ No *excluiFinal(No *L){
         aux->ant->prox = aux->prox;
     }
     free(aux);
+    return L;
 }
 
 void imprime(No *L){
@@ -88,9 +89,10 @@ int main(){
     printf("\nMenu:\n");
     printf("1. Inserir elemento no início\n");
     printf("2. Inserir elemento no final\n");
-    printf("3  Excluir primeiro elemento\n");
+    printf("3. Excluir primeiro elemento\n");
+    printf("4. Excluir o último elemento\n");
     printf("7. Imprimir Lista\n");
-    printf("8. Sair do programa ");
+    printf("8. Sair do programa\n ");
     
     scanf("%d", &escolha);
     switch (escolha)
@@ -109,6 +111,9 @@ int main(){
     case 3:
         L = excluiInicio(L);
         
+        break;
+    case 4:
+        L = excluiFinal(L);
         break;
     case 7:
             imprime(L);
