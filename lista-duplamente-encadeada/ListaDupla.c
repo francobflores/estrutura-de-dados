@@ -73,8 +73,10 @@ No *excluiFinal(No *L){
 No *buscaChave(No *L, int valor){
     No *aux = L;
     if(L == NULL)return aux;
-    while(aux != NULL)
+    while(aux != NULL){
+        if(aux->chave == valor)break;
         aux = aux->prox;
+    }
     return aux;
 }
 void imprime(No *L){
@@ -98,8 +100,11 @@ int main(){
     printf("2. Inserir elemento no final\n");
     printf("3. Excluir primeiro elemento\n");
     printf("4. Excluir o último elemento\n");
+    printf("5. Buscar uma chave na lista\n");
+    
     printf("7. Imprimir Lista\n");
     printf("8. Sair do programa\n ");
+    
     
     scanf("%d", &escolha);
     switch (escolha)
@@ -122,6 +127,18 @@ int main(){
     case 4:
         L = excluiFinal(L);
         break;
+    case 5:
+        No *buscador;
+        printf("Informe a chave do elemento a ser buscado:\n");
+        scanf("%d", &valor);
+        buscador = buscaChave(L, valor);
+        if(buscador != NULL){
+            printf("Elemento %d Encontrado na Lista!",buscador->chave);
+        }else{
+            printf("Elemento não Encontrado!");
+        }
+        break;
+
     case 7:
             imprime(L);
             break;
