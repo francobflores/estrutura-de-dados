@@ -70,6 +70,13 @@ No *excluiFinal(No *L){
     return L;
 }
 
+No *buscaChave(No *L, int valor){
+    No *aux = L;
+    if(L == NULL)return aux;
+    while(aux != NULL)
+        aux = aux->prox;
+    return aux;
+}
 void imprime(No *L){
     printf("Imprimindo a Lista:");
     if(L != NULL){
