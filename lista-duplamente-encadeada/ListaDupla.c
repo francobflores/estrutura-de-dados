@@ -79,6 +79,17 @@ No *buscaChave(No *L, int valor){
     }
     return aux;
 }
+
+No *buscaChave2(No *L, int ch) { // Essa função é para ser aproveitada em outras operações
+    No *aux = L;
+    while (aux != NULL && ch != aux->chave) {
+        if (aux->prox == NULL)//verificação para evitar acessar um campo proibido
+            break;
+        aux = aux->prox;
+    }
+    return aux;
+}
+
 void imprime(No *L){
     printf("Imprimindo a Lista:\n");
     if(L != NULL){
