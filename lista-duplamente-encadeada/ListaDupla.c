@@ -80,7 +80,7 @@ No *buscaChave(No *L, int valor){
     return aux;
 }
 void imprime(No *L){
-    printf("Imprimindo a Lista:");
+    printf("Imprimindo a Lista:\n");
     if(L != NULL){
         No *aux = L;
         while(aux != NULL){
@@ -101,11 +101,10 @@ int main(){
     printf("3. Excluir primeiro elemento\n");
     printf("4. Excluir o último elemento\n");
     printf("5. Buscar uma chave na lista\n");
-    
     printf("7. Imprimir Lista\n");
-    printf("8. Sair do programa\n ");
+    printf("8. Sair do programa\n");
     
-    
+    printf("Escolha uma das opções: ");
     scanf("%d", &escolha);
     switch (escolha)
     {
@@ -135,7 +134,7 @@ int main(){
         if(buscador != NULL){
             printf("Elemento %d Encontrado na Lista!",buscador->chave);
         }else{
-            printf("Elemento não Encontrado!");
+            printf("Elemento não Encontrado na Lista!");
         }
         break;
 
