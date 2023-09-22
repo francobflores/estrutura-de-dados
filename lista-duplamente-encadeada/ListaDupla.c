@@ -89,7 +89,16 @@ No *buscaChave2(No *L, int ch) { // Essa função é para ser aproveitada em out
     }
     return aux;
 }
-
+No *buscaChaveOrd(No *L, int ch){
+    No *aux = L;
+    if(L == NULL)return NULL;
+    while(aux != NULL && ch > aux->chave){
+        if(aux->prox != NULL){
+            aux = aux->prox;
+        }
+        return aux;
+    }
+}
 void imprime(No *L){
     printf("Imprimindo a Lista:\n");
     if(L != NULL){
