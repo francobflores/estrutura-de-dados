@@ -43,6 +43,25 @@ No *insereOrd(No *L, int valor){
     return L;
 }
 
+No *removeChaveOrd(No *L, int ch){
+    No *aux = L;
+    No *pred = NULL;
+    if(L == NULL){
+        printf("Não foi posível excluir pois a chave nao se encontra na lista, ou melhor a lista se encontra vazia");
+        return NULL;
+    }
+    while(aux != NULL && ch > aux->chave){
+        pred = aux;
+        aux = aux->prox;
+    }
+    if(aux != NULL && ch == aux->chave){
+        if(pred == NULL) L = L->prox;
+        else pred->prox = aux->prox;
+        free(aux);
+    }
+    return L;
+}
+
 void imprime(No *L){
     No *aux = L;
     if(L !=  NULL){
@@ -55,14 +74,27 @@ void imprime(No *L){
 }
 int main(){
     No *L = NULL;
-
+    No *K = NULL;
     L = insereOrd(L, 5);
     L = insereOrd(L, 4);
     L = insereOrd(L, 10);
     L = insereOrd(L, 2);
     L = insereOrd(L, 8);
+    printf("Completa: ");
+    imprime(L);
 
+    L = removeChaveOrd(L, 2);
+    printf("Remoção do menor: ");
+    imprime(L);
+
+    L= removeChaveOrd(L, 10);
+    printf("Remoção do maior: ");
     imprime(L);
     
+    L = removeChaveOrd(L, 5);
+    printf("Remoção no meio da lista: ");
+    imprime(L);
+    printf("Teste da lista vazia: ");
+    K = removeChaveOrd(K, 10);   
     return 0;
 }
