@@ -48,10 +48,21 @@ void imprime(No *L){
     if(L !=  NULL){
         while(aux != NULL){
             printf("%d ", aux->chave);
+            aux = aux->prox;
         }
         printf("\n");
     }
 }
 int main(){
+    No *L = NULL;
+
+    L = insereOrd(L, 5);
+    L = insereOrd(L, 4);
+    L = insereOrd(L, 10);
+    L = insereOrd(L, 2);
+    L = insereOrd(L, 8);
+
+    imprime(L);
+    
     return 0;
 }
