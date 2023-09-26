@@ -42,6 +42,16 @@ No *insereOrd(No *L, int valor){
     }
     return L;
 }
+
+void imprime(No *L){
+    No *aux = L;
+    if(L !=  NULL){
+        while(aux != NULL){
+            printf("%d ", aux->chave);
+        }
+        printf("\n");
+    }
+}
 int main(){
     return 0;
 }
