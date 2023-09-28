@@ -72,7 +72,7 @@ void imprime(No *L){
         printf("\n");
     }
 }
-int main(){
+/*int main(){
     No *L = NULL;
     No *K = NULL;
     L = insereOrd(L, 5);
@@ -96,5 +96,54 @@ int main(){
     imprime(L);
     printf("Teste da lista vazia: ");
     K = removeChaveOrd(K, 10);   
+    return 0;
+}*/
+
+int main(){
+    No * L = NULL;
+    int opc;
+    int chave;
+
+    while(1){
+        
+        printf("==========MENU==========\n");
+        printf("1. Inserir Ordenado!\n");
+        printf("2. Remover Ordenado!\n");
+        printf("3. Imprimir!\n");
+        printf("9. Para fechar o Programa!\n");
+        printf("Escolha uma das opções: ");
+        scanf("%d",&opc);
+
+        switch (opc)
+        {
+        case 1:
+            printf("Escolha a Chave a ser inserida: ");
+            scanf("%d", &chave);
+            L = insereOrd(L, chave);
+            break;
+        case 2:
+            printf("Escolha a Chave a ser excluída: ");
+            scanf("%d", &chave);
+            L = removeChaveOrd(L, chave);
+            break;
+        case 3:
+            printf("Impressão da Lista: ");
+            imprime(L);
+            break;
+        case 9:
+            printf("Fechando o Programa!\n");
+            exit(1);
+            break;
+
+        
+        default:
+            break;
+        }
+        
+
+
+        
+    }
+
     return 0;
 }
