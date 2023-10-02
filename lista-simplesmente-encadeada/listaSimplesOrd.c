@@ -72,6 +72,17 @@ void imprime(No *L){
         printf("\n");
     }
 }
+
+No *buscaChave(No *L, int valor){
+    No *aux = L;
+    if(L == NULL)return NULL;
+    else{
+        while(aux != NULL){
+            if(valor <= aux->chave) aux = aux->prox;
+        }
+        return aux;
+    }
+}
 /*int main(){
     No *L = NULL;
     No *K = NULL;
