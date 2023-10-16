@@ -11,3 +11,12 @@ int vazia(Pilha *stack){
 int cheia(Pilha *stack){
     return stack->topo == TAMANHO -1;
 }
+
+void push(Pilha* stack, int valor) {
+    if (!cheia(stack)) {  // Verifica se a pilha não está cheia
+        stack->topo++;  // Incrementa o topo
+        stack->p[stack->topo] = valor;  // Adiciona o elemento ao topo
+    } else {
+        printf("Erro: A pilha está cheia!\n");
+    }
+}

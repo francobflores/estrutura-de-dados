@@ -25,6 +25,10 @@ int vazia(Pilha *stack);
 // Retorna 1 (verdadeiro) se o topo atingiu o tamanho máximo da pilha
 int cheia(Pilha *stack);
 
+//Função que insere um elemento no topo da pilha
+void push(Pilha* stack, int valor);
+
+
 
 
 
