@@ -21,6 +21,10 @@ void inicializar (Pilha *stack);
 // Retorna 1 (verdadeiro) se o topo for -1, indicando que a pilha está vazia. Caso contra 0
 int vazia(Pilha *stack);
 
+/*Função que verifica se a pilha está cheia*/
+// Retorna 1 (verdadeiro) se o topo atingiu o tamanho máximo da pilha
+int cheia(Pilha *stack);
+
 
 
 

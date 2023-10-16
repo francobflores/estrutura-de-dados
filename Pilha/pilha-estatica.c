@@ -7,3 +7,7 @@ void inicializar (Pilha *stack){
 int vazia(Pilha *stack){
     return stack->topo == -1; 
 }
+
+int cheia(Pilha *stack){
+    return stack->topo == TAMANHO -1;
+}
