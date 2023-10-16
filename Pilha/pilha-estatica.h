@@ -14,6 +14,9 @@ struct pilha {
     int topo;  // Índice do elemento no topo
 }Pilha;
 
+/*Função que inicializa uma pilha*/
+void inicializar (Pilha *stack);
+
 
 
 
