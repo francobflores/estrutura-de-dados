@@ -17,6 +17,10 @@ struct pilha {
 /*Função que inicializa uma pilha*/
 void inicializar (Pilha *stack);
 
+/*Função para verificar se a pilha está vazia*/
+// Retorna 1 (verdadeiro) se o topo for -1, indicando que a pilha está vazia. Caso contra 0
+int vazia(Pilha *stack);
+
 
 
 
