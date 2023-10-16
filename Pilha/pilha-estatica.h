@@ -28,6 +28,9 @@ int cheia(Pilha *stack);
 //Função que insere um elemento no topo da pilha
 void push(Pilha* stack, int valor);
 
+//Função que remove o elemento do topo da pilha
+void pop(Pilha *stack);
+
 
 
 

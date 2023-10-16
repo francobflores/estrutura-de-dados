@@ -20,3 +20,14 @@ void push(Pilha* stack, int valor) {
         printf("Erro: A pilha está cheia!\n");
     }
 }
+
+void pop(Pilha *stack){
+    if(!vazia(stack)){
+        int valor = stack->p[stack->topo];
+        stack->topo --;
+        retorn valor;
+    }else{
+        printf("A pilha está vazia!\n");
+        return -1;
+    }
+}
