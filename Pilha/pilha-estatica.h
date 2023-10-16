@@ -31,6 +31,9 @@ void push(Pilha* stack, int valor);
 //Função que remove o elemento do topo da pilha
 void pop(Pilha *stack);
 
+// Função para obter o elemento no topo da pilha (peek)
+int peek(Pilha* stack)
+
 
 
 

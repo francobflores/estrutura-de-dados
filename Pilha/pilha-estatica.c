@@ -31,3 +31,12 @@ void pop(Pilha *stack){
         return -1;
     }
 }
+
+
+int peek(Pilha* stack) {
+    if (vazia(stack)) {
+        printf("Erro: A pilha está vazia!\n");
+        return -1;
+    }
+    return stack->p[stack->topo];
+}
