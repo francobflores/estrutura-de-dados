@@ -1,42 +1,25 @@
-#include "pilha-estatica.h"
-
-void inicializar (Pilha *stack){
-    stack->top = -1;
-}
-
-int vazia(Pilha *stack){
-    return stack->topo == -1; 
-}
-
-int cheia(Pilha *stack){
-    return stack->topo == TAMANHO -1;
-}
-
-void push(Pilha* stack, int valor) {
-    if (!cheia(stack)) {  // Verifica se a pilha não está cheia
-        stack->topo++;  // Incrementa o topo
-        stack->p[stack->topo] = valor;  // Adiciona o elemento ao topo
-    } else {
-        printf("Erro: A pilha está cheia!\n");
+Pilha*criarPilha (size_t capacidade){
+    Pilha *P = (Pilha*)calloc(1,sizeof(Pilha));
+    if(P == NULL){
+        printf("Erro de alocação");
+        exit(1);
     }
-}
-
-void pop(Pilha *stack){
-    if(!vazia(stack)){
-        int valor = stack->p[stack->topo];
-        stack->topo --;
-        retorn valor;
-    }else{
-        printf("A pilha está vazia!\n");
-        return -1;
+    P->capacidade = capacidade;
+    P->topo = -1;
+    P->dado = (int *)calloc(P->capacidade, sizeof(int));
+    if(P->dado == NULL){
+        printf("Erro de alocação do Array");
+        free(P);
+        exit(1);
     }
+    return P;
 }
 
+void destruirPilha (Pilha ** Pref){
+    Pilha *P = *Pref;
+    free(P->dado);
+    free(P);
+    *Pref = NULL;// Define o ponteiro como NULL para evitar referências a memória liberada
 
-int peek(Pilha* stack) {
-    if (vazia(stack)) {
-        printf("Erro: A pilha está vazia!\n");
-        return -1;
-    }
-    return stack->p[stack->topo];
 }
+

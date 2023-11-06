@@ -5,17 +5,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stddef.h>
 
 /* Definição de estruturas e declaração de variáveis locais */
 #define TAMANHO 5  // Tamanho máximo da pilha
 
 struct pilha {
-    int p[TAMANHO];  // Array para armazenar os elementos
+    int *dado;
+    size_t capacidade; 
     int topo;  // Índice do elemento no topo
 }Pilha;
 
 /*Função que inicializa uma pilha*/
-void inicializar (Pilha *stack);
+Pilha *criarPilha (size_t capacidade);
+
+void destruirPilha (Pilha ** Pref);
 
 /*Função para verificar se a pilha está vazia*/
 // Retorna 1 (verdadeiro) se o topo for -1, indicando que a pilha está vazia. Caso contra 0
