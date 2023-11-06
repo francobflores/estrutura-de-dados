@@ -1,4 +1,5 @@
-Pilha*criarPilha (size_t capacidade){
+#include "pilha-estatica.h"
+Pilha *criarPilha (size_t capacidade){
     Pilha *P = (Pilha*)calloc(1,sizeof(Pilha));
     if(P == NULL){
         printf("Erro de alocação");
